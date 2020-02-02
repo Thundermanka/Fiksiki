@@ -1,0 +1,21 @@
+{
+    public GameObject electron;
+    public float speed = 10f;
+    public GameObject EndPoint;
+    void Update()
+    {
+        if (_movingActivated)
+        {
+             electron.position = Vector3.MoveTowards(transform.position, EndPoint.transform.position,Time.deltaTime * speed);
+            round other = gameObject.GetComponent<round>();
+            other.enabled = false;
+        }
+    }
+
+    private bool _movingActivated = false;
+
+    public void ActivateMoving()
+    {
+        _movingActivated = true;
+    }
+}
